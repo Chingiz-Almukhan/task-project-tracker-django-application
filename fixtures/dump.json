@@ -1,0 +1,136 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$gAU8Ei2ZNUDysfPoBvqXqF$w2BigPJiyHucqraKBDHsGcBWIFnp6B4foGYXoRlftY8=",
+    "last_login": "2022-10-07T00:55:52.314Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-07T00:55:38.351Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "tracker.issuetracker",
+  "pk": 1,
+  "fields": {
+    "summary": "Закончить домашку",
+    "description": "",
+    "status": 2,
+    "created_at": "2022-10-07T01:00:36.128Z",
+    "changed_at": "2022-10-07T01:00:36.128Z",
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.issuetracker",
+  "pk": 2,
+  "fields": {
+    "summary": "Встать раньше обеда",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-10-07T01:00:49.059Z",
+    "changed_at": "2022-10-07T01:00:49.059Z",
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.issuetracker",
+  "pk": 3,
+  "fields": {
+    "summary": "Поесть",
+    "description": "",
+    "status": 2,
+    "created_at": "2022-10-07T01:00:59.166Z",
+    "changed_at": "2022-10-07T01:00:59.166Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.issuetracker",
+  "pk": 4,
+  "fields": {
+    "summary": "Поспать",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-10-07T01:01:11.059Z",
+    "changed_at": "2022-10-07T01:01:11.059Z",
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.issuetracker",
+  "pk": 5,
+  "fields": {
+    "summary": "Почистить технику",
+    "description": "",
+    "status": 2,
+    "created_at": "2022-10-07T01:01:20.632Z",
+    "changed_at": "2022-10-07T01:01:20.632Z",
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 1,
+  "fields": {
+    "name": "Задача"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 2,
+  "fields": {
+    "name": "Ошибка"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 3,
+  "fields": {
+    "name": "Улучшение"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 1,
+  "fields": {
+    "name": "Новый"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 2,
+  "fields": {
+    "name": "В процессе"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 3,
+  "fields": {
+    "name": "Выполнено"
+  }
+}
+]

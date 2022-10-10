@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Add {% endblock %}
+{% block content %}
+    <h4 class="text-center my-3 pb-3">Добавить задачу</h4>
+    <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+          action="{% url 'add' %}" method="POST">
+        {% include 'partial/add_edit_form.html' with button_text='Добавить' %}
+    </form>
+{% endblock %}

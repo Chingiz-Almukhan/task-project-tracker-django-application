@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Main {% endblock %}
+{% block content %}
+    <h4 class="text-center my-3 pb-3">Список Задач</h4>
+    <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+        <div class="col-12">
+            <a href="{% url 'add' %}" type="submit" class="btn btn-primary">Добавить</a>
+        </div>
+    </form>
+    <table class="table mb-4">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Задачи</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Тип</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <th scope="row">{{ article.pk }}</th>
+                <td>{{ article.summary }}</td>
+                <td>{{ article.status }}</td>
+                <td>{% for type in article.type.all %}{{ type.name }} {% if not forloop.last %},
+                {% endif %} {% endfor %}</td>
+                <td><a href="{% url 'task' article.pk %}" class="btn btn-dark">Подробнее</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

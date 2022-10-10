@@ -1,0 +1,12 @@
+{% csrf_token %}
+
+<div>
+    <div class="form-outline">
+        {{ form.as_p }}
+    </div>
+    <div class="col text-center">
+        <button type="submit" class="btn  btn-primary mt-4">{{ button_text }}</button>
+        <a href="{% url 'main' %}" type="submit" class="btn btn-warning mt-4">Вернуться на
+                                        главную</a>
+    </div>
+</div>
