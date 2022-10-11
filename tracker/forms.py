@@ -43,8 +43,3 @@ class AddEditForm(forms.ModelForm):
             {'placeholder': 'Введите описание', 'type': 'text', 'class': 'form-control'})
         self.fields['status'].widget.attrs.update({'class': 'form-control'})
         self.fields['type'].widget.attrs.update({'class': 'form-control'})
-
-    def clean_summary(self):
-        summary = self.cleaned_data.get('summary')
-        if IssueTracker.objects.filter(summary=summary).exists():
-            raise ValidationError('Запись с таким названием уже существует')

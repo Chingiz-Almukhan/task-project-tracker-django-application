@@ -1,0 +1,26 @@
+1)Закрытые задачи за последний месяц от текущей даты (вхождение определяйте по дате последнего обновления).
+    last_month = datetime.today() - timedelta(days=30)
+    IssueTracker.objects.filter(changed_at__gte=last_month, status=3)
+
+2)Задачи, имеющие один из указанных статусов И один из указанных типов (в запросе укажите 2 любых названия типа и 2 названия статуса, которые есть в вашей базе).
+    IssueTracker.objects.filter(status__name__in=['В процессе', 'Новый'], type__name__in=['Задача', 'Улучшение']).distinct()
+
+3)Задачи, в названии которых содержится слово "bug" в любом регистре или относящиеся к типу "Баг", имеющие НЕ закрытый статус.
+    from django.db.models import Q
+    IssueTracker.objects.filter(Q(summary__icontains='bug') | Q(type__name='Ошибка')).exclude(status__name='Выполнено')
+
+4)Для всех задач только следующие поля: id, название задачи, название типа и название статуса.
+    IssueTracker.objects.values('id', 'summary', 'type__name', 'status__name')
+
+5)Задачи, где краткое описание совпадает с полным.
+    description = IssueTracker.objects.values('description')
+    IssueTracker.objects.filter(summary__icontains=description).exclude(description__exact='')
+
+6)Количество задач по каждому типу.
+    from django.db.models import Count
+    len(IssueTracker.objects.values('summary').filter(type__name='Ошибка').annotate(count=Count('summary')))
+    len(IssueTracker.objects.values('summary').filter(type__name='Задача').annotate(count=Count('summary')))
+    len(IssueTracker.objects.values('summary').filter(type__name='Улучшение').annotate(count=Count('summary')))
+
+
+
